@@ -1,8 +1,7 @@
 angular.module('profiles')
-.controller('rootCtrl', function( $scope ) {
-	
-	let x = 1;
-	
-	$scope.test = x;
+.controller('rootCtrl', function( $scope, profileService ) {
+
+	profileService.getProfiles()
+					.then( profiles => $scope.profiles = profiles );
 
 });
