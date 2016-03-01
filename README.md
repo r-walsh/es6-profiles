@@ -141,7 +141,7 @@ $scope.test = x;
 
 Set up your `index.html` in `/dist` with script tags linking to the Angular CDN and your `bundle.min.js`, then bind `{{ test }}` to the view.
 
-If you run into problems, here is an example of a working [gulpfile](https://gist.github.com/r-walsh/d0ae5a29386a8ca3d780).
+If you run into problems, here is an example of a working [gulpfile](https://gist.github.com/r-walsh/8b330c0274edbe9691e1).
 
 ###Step Four: Building out the Angular front end.
 
@@ -151,4 +151,4 @@ This app will have just two components:
     + Profile: Displays all user information stored in profiles.
     + NewProfile: Form that allows the posting of a new profile to the database.
 
-Write out these components to the best of your ability using ES6 syntax when appropriate. For an example of a possible solution see the [solution branch]() of this project.
+Write out these components to the best of your ability using ES6 syntax when appropriate. For an example of a possible solution see the [solution branch](https://github.com/r-walsh/es6-profiles/tree/solution) of this project.
