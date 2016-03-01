@@ -147,4 +147,8 @@ If you run into problems, here is an example of a working [gulpfile](https://gis
 
 Now that we have a functional ES6 back end and a working gulpfile for the front end, let's finish up the project by creating an ES6 Angular front end.
 
-This app will have just two components: Profiles and NewProfile.
+This app will have just two components:
+    + Profile: Displays all user information stored in profiles.
+    + NewProfile: Form that allows the posting of a new profile to the database.
+
+Write out these components to the best of your ability using ES6 syntax when appropriate. For an example of a possible solution see the [solution branch]() of this project.
