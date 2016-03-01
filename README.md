@@ -72,7 +72,6 @@ This code will simply pull in our `server.js` file and run it through the Babel 
 And that's all we need to do to start writing our back end in ES6! Babel will handle the rest for us.
 To test this, let's set up a basic express server in ES6.
 
-ZZFIXTHIS note about const!
 ```javascript
 //server.js
 import express from 'express'; // ES6 module import syntax
@@ -80,7 +79,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-const app = express(); // const declarations for immutable values
+const app = express(); // const declarations *
 const port = 8910;
 const mongoUri = `mongodb://localhost:27017/es6-profiles`;
 
@@ -97,6 +96,9 @@ app.listen(port, () => {
   console.log(`Listening on ${ port }`);
 });
 ```
+
+  * `const` creates an immutable binding; don't confuse this for creating an immutable value! Check out this
+    [article](https://mathiasbynens.be/notes/es6-const) for a good overview of what `const` does for you.
 
 Run this the same way you normally would (`node index`) and you should see in the console: `Listening on 8910`.
 
