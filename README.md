@@ -105,3 +105,46 @@ Build these out as best you can using ES6 syntax and test using postman before c
 + [Server](https://gist.github.com/r-walsh/53b8909b35726b7bfd29)
 
 That's it! We now have a fully functional back end written in ES6 and compiled using babel-register.
+
+###Step Three: Front end dependencies and gulpfile setup.
+
+First things first, we are going to install gulp and the dependencies we will be using in our gulpfile. If you don't already have gulp installed on your machine, run `npm install gulp -g` to install it globally and to be able to run `gulp` from your command line.
+
+Next we will install our gulp dev-dependencies: `npm i gulp gulp-ng-annotate gulp-babel gulp-concat gulp-uglify gulp-uglifycss --save-dev`. You'll notice that we are saving these only to our dev-dependencies. This just means that these dependencies are only necessary to a developer, not someone who would simply wish to download and run the code.
+
+A quick breakdown of the gulp plugins we just installed:
+    + `gulp-ng-annotate`: Prevents dependency injection errors when minifying AngularJS code.
+    + `gulp-babel`: Compiles our ES6 to ES5.
+    + `gulp-concat`: Concatenates code into a single file.
+    + `gulp-uglify`: Minifies JavaScript.
+    + `gulp-uglifycss`: Minifies CSS.
+
+Using these plugins write your gulpfile in such a way that it will:
+JS
+    1. Run ng-annotate on all Angular scripts.
+    2. Concatenate all JS files into a single file named `bundle.min.js`.
+    3. Transpile ES6 to ES5 in all JS files.
+    4. Minify the concatenated file.
+    5. Place the result into `/dist/src`
+CSS
+    1. Concatenate all CSS files into a single file named `styles.min.css`.
+    2. Minify the concatenated file.
+    3. Place the result into `/dist/styles`.
+All
+    1. Watch for changes, and run the appropriate tasks when a file is changed.
+
+You can test this by creating an `app.js` and `rootCtrl.js` in your `/main/components` folder. Inside of `rootCtrl` add the following code:
+```javascript
+let x = `test`;
+$scope.test = x;
+```
+
+Set up your `index.html` in `/dist` with script tags linking to the Angular CDN and your `bundle.min.js`, then bind `{{ test }}` to the view.
+
+If you run into problems, here is an example of a working [gulpfile](https://gist.github.com/r-walsh/d0ae5a29386a8ca3d780).
+
+###Step Four: Building out the Angular front end.
+
+Now that we have a functional ES6 back end and a working gulpfile for the front end, let's finish up the project by creating an ES6 Angular front end.
+
+This app will have just two components: Profiles and NewProfile.

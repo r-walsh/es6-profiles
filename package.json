@@ -4,7 +4,9 @@
   "description": "**The goal**: Once you have completed this tutorial you will have experience with gulp, ES6, and Babel. You will have created a functional gulpfile, run a fully ES6 backend using babel-register, and compile an ES6 Angular front end into browser runnable code.",
   "main": "index.js",
   "babel": {
-    "presets": ["babel-preset-es2015"]
+    "presets": [
+      "babel-preset-es2015"
+    ]
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +23,13 @@
     "cors": "^2.7.1",
     "express": "^4.13.4",
     "mongoose": "^4.4.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "^1.0.6"
   }
 }
