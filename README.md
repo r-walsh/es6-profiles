@@ -152,3 +152,9 @@ This app will have just two components:
     + NewProfile: Form that allows the posting of a new profile to the database.
 
 Write out these components to the best of your ability using ES6 syntax when appropriate. For an example of a possible solution see the [solution branch](https://github.com/r-walsh/es6-profiles/tree/solution) of this project.
+
+###Black Diamond:
+
++ **Expand!** Find uses for object literals, template strings, the spread operator! It doesn't have to be a perfect use case. Get comfortable with the syntax!
++ Add support for a CSS pre-processor in your gulpfile. LESS/SASS/Stylus are all good options. They are easy to learn the basics of and look great on a resume.
++ Implement a build system and ES6 syntax into your personal project!
