@@ -129,7 +129,7 @@ That's it! We now have a fully functional back-end written in ES6 and compiled u
 
 ## Step Three: Front-end dependencies and gulpfile setup.
 
-First things first: we are going to install gulp and the dependencies we will be using in our gulpfile.
+First things first: we are going to install Gulp and the dependencies we will be using in our gulpfile.
 If you don't already have Gulp installed on your machine, run `npm install gulp -g` to install it globally,
 so you can run `gulp` from the terminal.
 
