@@ -23,7 +23,7 @@ es6-profile
 ----index.html
 ----/src
 
---webpack.config..js
+--webpack.config.js
 --package.json
 --server.js
 --index.js
