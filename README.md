@@ -44,7 +44,7 @@ Here we install our standard server dependencies as well as a handful of Babel d
 * `babel-core`: This is the core of the actual Babel compiler itself.
 * `babel-preset-es2015`: This is the presets that we are telling Babel to follow to compile our code.
 * `babel-register`: This is the plugin that allows us to transpile our server side code on the fly,
-  rather than running it through a build system such as Gulp.
+  rather than running it through a build system such as Webpack.
 
 ## Step Two: Server set up.
 
