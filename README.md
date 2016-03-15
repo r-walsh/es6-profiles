@@ -113,25 +113,25 @@ First things first, we are going to install gulp and the dependencies we will be
 Next we will install our gulp dev-dependencies: `npm i gulp gulp-ng-annotate gulp-babel gulp-concat gulp-uglify gulp-uglifycss --save-dev`. You'll notice that we are saving these only to our dev-dependencies. This just means that these dependencies are only necessary to a developer, not someone who would simply wish to download and run the code.
 
 A quick breakdown of the gulp plugins we just installed:
-    + `gulp-ng-annotate`: Prevents dependency injection errors when minifying AngularJS code.
-    + `gulp-babel`: Compiles our ES6 to ES5.
-    + `gulp-concat`: Concatenates code into a single file.
-    + `gulp-uglify`: Minifies JavaScript.
-    + `gulp-uglifycss`: Minifies CSS.
++ `gulp-ng-annotate`: Prevents dependency injection errors when minifying AngularJS code.
++ `gulp-babel`: Compiles our ES6 to ES5.
++ `gulp-concat`: Concatenates code into a single file.
++ `gulp-uglify`: Minifies JavaScript.
++ `gulp-uglifycss`: Minifies CSS.
 
 Using these plugins write your gulpfile in such a way that it will:
 JS
-    1. Run ng-annotate on all Angular scripts.
-    2. Concatenate all JS files into a single file named `bundle.min.js`.
-    3. Transpile ES6 to ES5 in all JS files.
-    4. Minify the concatenated file.
-    5. Place the result into `/dist/src`
+1. Run ng-annotate on all Angular scripts.
+2. Concatenate all JS files into a single file named `bundle.min.js`.
+3. Transpile ES6 to ES5 in all JS files.
+4. Minify the concatenated file.
+5. Place the result into `/dist/src`
 CSS
-    1. Concatenate all CSS files into a single file named `styles.min.css`.
-    2. Minify the concatenated file.
-    3. Place the result into `/dist/styles`.
+1. Concatenate all CSS files into a single file named `styles.min.css`.
+2. Minify the concatenated file.
+3. Place the result into `/dist/styles`.
 All
-    1. Watch for changes, and run the appropriate tasks when a file is changed.
+1. Watch for changes, and run the appropriate tasks when a file is changed.
 
 You can test this by creating an `app.js` and `rootCtrl.js` in your `/main/components` folder. Inside of `rootCtrl` add the following code:
 ```javascript
@@ -148,7 +148,13 @@ If you run into problems, here is an example of a working [gulpfile](https://gis
 Now that we have a functional ES6 back end and a working gulpfile for the front end, let's finish up the project by creating an ES6 Angular front end.
 
 This app will have just two components:
-    + Profile: Displays all user information stored in profiles.
-    + NewProfile: Form that allows the posting of a new profile to the database.
++ Profile: Displays all user information stored in profiles.
++ NewProfile: Form that allows the posting of a new profile to the database.
 
 Write out these components to the best of your ability using ES6 syntax when appropriate. For an example of a possible solution see the [solution branch](https://github.com/r-walsh/es6-profiles/tree/solution) of this project.
+
+###Black Diamond:
+
++ **Expand!** Find uses for object literals, template strings, the spread operator! It doesn't have to be a perfect use case. Get comfortable with the syntax!
++ Add support for a CSS pre-processor in your gulpfile. LESS/SASS/Stylus are all good options. They are easy to learn the basics of and look great on a resume.
++ Implement a build system and ES6 syntax into your personal project!
