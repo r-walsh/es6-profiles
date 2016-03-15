@@ -1,10 +1,7 @@
-angular.module('profiles')
-.directive('profile', function() {
+export default function profile() {
 	return {
-
 		  restrict: 'E'
 		, scope: { profile: '=' }
-		, templateUrl: `./src/templates/profile.html`
-
+		, template: require('./profile.html')
 	}
-});
+}

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html ng-app="profiles" lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Profiles</title>
+    <meta charset="UTF-8">
+    <title>Profiles</title>
 </head>
+
 <body ng-controller="rootCtrl">
 
-<new-profile></new-profile>
-	
-<profile ng-repeat="profile in profiles" profile="profile"></profile>
+<ui-view class="mainView"></ui-view>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-<script src="./src/bundle.min.js"></script>
+<script src="src/bundle.js"></script>
 </body>
+
 </html>

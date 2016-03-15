@@ -7,7 +7,7 @@ an ES6 Angular front end into browser runnable code.
 ## Step One: Set up and install dependencies
 
 As usual when starting a new project, run `npm init -y` to create a `package.json` file.
-Once that is created, set up your basic direcotry structure. It should be built something like this:
+Once that is created, set up your basic directory structure. It should be built something like this:
 
 ```
 es6-profile
@@ -23,7 +23,7 @@ es6-profile
 ----index.html
 ----/src
 
---webpack.config..js
+--webpack.config.js
 --package.json
 --server.js
 --index.js
@@ -38,8 +38,8 @@ Luckily we don't need to worry about this for the back end, where we will be usi
 to compile our code on the fly.
 
 Let's move on to installing dependencies.
-Run `npm i babel-core babel-preset-es2015 babel-register body-parser cors express mongoose --save`.
-Here we install our standard server dependencies as well as a handful of Babel dependencies.
+Run `npm i babel-core babel-preset-es2015 babel-register angular angular-ui-router body-parser cors express mongoose --save`.
+Here we install our standard dependencies as well as a handful of Babel dependencies.
 
 * `babel-core`: This is the core of the actual Babel compiler itself.
 * `babel-preset-es2015`: This is the presets that we are telling Babel to follow to compile our code.

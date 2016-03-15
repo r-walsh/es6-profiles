@@ -1,7 +1,8 @@
-angular.module('profiles')
-.controller('rootCtrl', function( $scope, profileService ) {
+export default function rootCtrl( $scope, profileService ) {
 
 	profileService.getProfiles()
-					.then( profiles => $scope.profiles = profiles );
+		.then( profiles => $scope.profiles = profiles );
 
-});
+}
+
+rootCtrl.$inject = [`$scope`, `profileService`];
