@@ -7,7 +7,7 @@ an ES6 Angular front end into browser runnable code.
 ## Step One: Set up and install dependencies
 
 As usual when starting a new project, run `npm init -y` to create a `package.json` file.
-Once that is created, set up your basic direcotry structure. It should be built something like this:
+Once that is created, set up your basic directory structure. It should be built something like this:
 
 ```
 es6-profile
