@@ -1,22 +1,21 @@
-export default function profileService( $http ) {
-	return {
+export default class ProfileService {
+	constructor( $http ) {
+		this.http = $http;
+	}
 
-		getProfiles() {
-			return $http.get(`/api/profile`)
-				.then( profiles => profiles.data );
-		}
+	getProfiles() {
+		return this.http.get(`/api/profile`)
+					.then( profiles => profiles.data );
+	}
 
-		, postProfile( name, age, url, skills ) {
-			console.log('posting from service...');
-			return $http.post(`/api/profile`, {
-				name
-				, age
-				, url
-				, skills
-			});
-		}
-
+	postProfile( name, age, url, skills ) {
+		return this.http.post(`/api/profile`, {
+			name
+			, age
+			, url
+			, skills
+		});
 	}
 }
 
-profileService.$inject = [`$http`];
+ProfileService.$inject = [`$http`];

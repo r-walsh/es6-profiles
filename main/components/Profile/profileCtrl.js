@@ -1,6 +1,8 @@
-export default function profileCtrl( $scope, profileService ) {
-	profileService.getProfiles()
-		.then( profiles => $scope.profiles = profiles );
+export default class ProfileCtrl {
+	constructor( profileService ) {
+		profileService.getProfiles()
+			.then( profiles => this.profiles = profiles );
+	}
 }
 
-profileCtrl.$inject = [`$scope`, `profileService`];
+ProfileCtrl.$inject = [`profileService`];

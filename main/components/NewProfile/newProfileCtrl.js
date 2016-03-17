@@ -1,9 +1,12 @@
-export default function newProfileCtrl( $scope, profileService ) {
-	$scope.skills = [''];
+export default class NewProfileCtrl {
+	constructor( profileService ) {
+		this.skills = [''];
+		this.profileService = profileService;
+	}
 
-	$scope.postProfile = function() {
-		profileService.postProfile( $scope.name, $scope.age, $scope.profileImage, $scope.skills );
+	postProfile() {
+		this.profileService.postProfile( this.name, this.age, this.profileImage, this.skills );
 	}
 }
 
-newProfileCtrl.$inject = [`$scope`, `profileService`];
+NewProfileCtrl.$inject = [`profileService`];

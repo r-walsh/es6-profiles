@@ -5,6 +5,7 @@ export default function newProfile() {
 		, scope: {}
 		, template: require('./newProfile.html')
 		, controller: `newProfileCtrl`
+		, controllerAs: `npc`
 
 	}
 }

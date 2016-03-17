@@ -5,12 +5,14 @@ export default function routing( $stateProvider, $urlRouterProvider ) {
 		.state('profiles', {
 			url: '/',
 			template: require('./components/views/profiles.html'),
-			controller: 'profileCtrl'
+			controller: 'profileCtrl',
+			controllerAs: 'pc'
 		})
 		.state('newProfile', {
 			url: '/new',
 			template: require('./components/views/newProfile.html'),
-			controller: 'newProfileCtrl'
+			controller: 'newProfileCtrl',
+			controllerAs: 'npc'
 		});
 }
 routing.$inject = [`$stateProvider`, `$urlRouterProvider`];

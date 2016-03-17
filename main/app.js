@@ -5,20 +5,20 @@ import './styles/style.css';
 
 import routing from './routing';
 
-import profileCtrl from './components/Profile/profileCtrl';
-import newProfileCtrl from './components/NewProfile/newProfileCtrl';
-import rootCtrl from './components/rootCtrl';
+import ProfileCtrl from './components/Profile/profileCtrl';
+import NewProfileCtrl from './components/NewProfile/newProfileCtrl';
+import RootCtrl from './components/rootCtrl';
 
 import Profile from './components/Profile/Profile';
 import NewProfile from './components/NewProfile/NewProfile';
 
-import profileService from './components/profileService';
+import ProfileService from './components/profileService';
 
 angular.module('profiles', [uiRouter])
     .config(routing)
-	.controller(`profileCtrl`, profileCtrl)
-	.controller(`newProfileCtrl`, newProfileCtrl)
-	.controller(`rootCtrl`, rootCtrl)
+	.controller(`profileCtrl`, ProfileCtrl)
+	.controller(`newProfileCtrl`, NewProfileCtrl)
+	.controller(`rootCtrl`, RootCtrl)
 	.directive(`profile`, Profile)
 	.directive(`newProfile`, NewProfile)
-	.service(`profileService`, profileService);
+	.service(`profileService`, ProfileService);

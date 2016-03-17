@@ -35446,11 +35446,13 @@
 		$stateProvider.state('profiles', {
 			url: '/',
 			template: __webpack_require__(10),
-			controller: 'profileCtrl'
+			controller: 'profileCtrl',
+			controllerAs: 'pc'
 		}).state('newProfile', {
 			url: '/new',
 			template: __webpack_require__(11),
-			controller: 'newProfileCtrl'
+			controller: 'newProfileCtrl',
+			controllerAs: 'npc'
 		});
 	}
 	routing.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -35459,7 +35461,7 @@
 /* 10 */
 /***/ function(module, exports) {
 
-	module.exports = "<h1>ES6 Profiles</h1>\n<h3>people who love on our SYNTACTIC SUGAR brought to you in Comic Sans!</h3>\n<div class=\"navbar\">\n    <a ui-sref=\"profiles\">Home</a>\n    <a ui-sref=\"newProfile\">New Profile</a>\n</div>\n\n<h4>Profiles</h4>\n<hr>\n<profile ng-repeat=\"profile in profiles\" profile=\"profile\"></profile>";
+	module.exports = "<h1>ES6 Profiles</h1>\n<h3>people who love on our SYNTACTIC SUGAR brought to you in Comic Sans!</h3>\n<div class=\"navbar\">\n    <a ui-sref=\"profiles\">Home</a>\n    <a ui-sref=\"newProfile\">New Profile</a>\n</div>\n\n<h4>Profiles</h4>\n<hr>\n<profile ng-repeat=\"profile in ctrl.profiles\" profile=\"profile\"></profile>";
 
 /***/ },
 /* 11 */
@@ -35476,14 +35478,23 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = profileCtrl;
-	function profileCtrl($scope, profileService) {
-		profileService.getProfiles().then(function (profiles) {
-			return $scope.profiles = profiles;
-		});
-	}
 
-	profileCtrl.$inject = ["$scope", "profileService"];
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var ProfileCtrl = function ProfileCtrl(profileService) {
+		var _this = this;
+
+		_classCallCheck(this, ProfileCtrl);
+
+		profileService.getProfiles().then(function (profiles) {
+			return _this.profiles = profiles;
+		});
+	};
+
+	exports.default = ProfileCtrl;
+
+
+	ProfileCtrl.$inject = ["profileService"];
 
 /***/ },
 /* 13 */
@@ -35494,16 +35505,33 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = newProfileCtrl;
-	function newProfileCtrl($scope, profileService) {
-		$scope.skills = [''];
 
-		$scope.postProfile = function () {
-			profileService.postProfile($scope.name, $scope.age, $scope.profileImage, $scope.skills);
-		};
-	}
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	newProfileCtrl.$inject = ['$scope', 'profileService'];
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var NewProfileCtrl = function () {
+		function NewProfileCtrl(profileService) {
+			_classCallCheck(this, NewProfileCtrl);
+
+			this.skills = [''];
+			this.profileService = profileService;
+		}
+
+		_createClass(NewProfileCtrl, [{
+			key: 'postProfile',
+			value: function postProfile() {
+				this.profileService.postProfile(this.name, this.age, this.profileImage, this.skills);
+			}
+		}]);
+
+		return NewProfileCtrl;
+	}();
+
+	exports.default = NewProfileCtrl;
+
+
+	NewProfileCtrl.$inject = ['profileService'];
 
 /***/ },
 /* 14 */
@@ -35514,15 +35542,23 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = rootCtrl;
-	function rootCtrl($scope, profileService) {
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var RootCtrl = function RootCtrl(profileService) {
+		var _this = this;
+
+		_classCallCheck(this, RootCtrl);
 
 		profileService.getProfiles().then(function (profiles) {
-			return $scope.profiles = profiles;
+			return _this.profiles = profiles;
 		});
-	}
+	};
 
-	rootCtrl.$inject = ["$scope", "profileService"];
+	exports.default = RootCtrl;
+
+
+	RootCtrl.$inject = ["profileService"];
 
 /***/ },
 /* 15 */
@@ -35564,7 +35600,8 @@
 			restrict: 'E',
 			scope: {},
 			template: __webpack_require__(18),
-			controller: 'newProfileCtrl'
+			controller: 'newProfileCtrl',
+			controllerAs: 'npc'
 
 		};
 	}
@@ -35573,38 +35610,55 @@
 /* 18 */
 /***/ function(module, exports) {
 
-	module.exports = "<form>\n\t<input ng-model=\"name\" type=\"text\" placeholder=\"name\">\n\t<input ng-model=\"age\" type=\"number\" placeholder=\"age\">\n\t<input ng-model=\"profileImage\" type=\"text\" placeholder=\"image.url.com\">\n\t<input ng-model=\"skills[$index]\" ng-repeat=\"skill in skills track by $index\" type=\"text\" placeholder=\"coding and things\">\n\t<button ng-click=\"skills.push('')\">Add skill</button>\n\t<button ng-click=\"postProfile()\" type=\"submit\">Submit</button>\n</form>";
+	module.exports = "<form>\n\t<input ng-model=\"npc.name\" type=\"text\" placeholder=\"name\">\n\t<input ng-model=\"npc.age\" type=\"number\" placeholder=\"age\">\n\t<input ng-model=\"npc.profileImage\" type=\"text\" placeholder=\"image.url.com\">\n\t<input ng-model=\"npc.skills[$index]\" ng-repeat=\"skill in skills track by $index\" type=\"text\" placeholder=\"coding and things\">\n\t<button ng-click=\"npc.skills.push('')\">Add skill</button>\n\t<button ng-click=\"npc.postProfile()\" type=\"submit\">Submit</button>\n</form>";
 
 /***/ },
 /* 19 */
 /***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = profileService;
-	function profileService($http) {
-		return {
-			getProfiles: function getProfiles() {
-				return $http.get('/api/profile').then(function (profiles) {
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var ProfileService = function () {
+		function ProfileService($http) {
+			_classCallCheck(this, ProfileService);
+
+			this.http = $http;
+		}
+
+		_createClass(ProfileService, [{
+			key: "getProfiles",
+			value: function getProfiles() {
+				return this.http.get("/api/profile").then(function (profiles) {
 					return profiles.data;
 				});
-			},
-			postProfile: function postProfile(name, age, url, skills) {
-				console.log('posting from service...');
-				return $http.post('/api/profile', {
+			}
+		}, {
+			key: "postProfile",
+			value: function postProfile(name, age, url, skills) {
+				return this.http.post("/api/profile", {
 					name: name,
 					age: age,
 					url: url,
 					skills: skills
 				});
 			}
-		};
-	}
+		}]);
 
-	profileService.$inject = ['$http'];
+		return ProfileService;
+	}();
+
+	exports.default = ProfileService;
+
+
+	ProfileService.$inject = ["$http"];
 
 /***/ }
 /******/ ]);
